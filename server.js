@@ -3,6 +3,7 @@ const express = require('express');
 const config = require('config');
 const morgan = require('morgan');
 const GarageController = require('./controller/garages');
+const Utils = require('./utils');
 
 require('./modules/db'); // setup mongodb
 
@@ -24,7 +25,9 @@ nextApp.prepare().then(() => {
         nextApp.render(req, res, page);
     });
 
-    app.post('/api/garages', GarageController.handleAddGarages.bind(GarageController));
+    app.post('/api/garages', Utils.isValidSecretKey, GarageController.handleAddGarages.bind(GarageController));
+    app.post('/api/garages/multi', Utils.isValidSecretKey, GarageController.handleAddManyGarages.bind(GarageController));
+    app.post('/api/garages/:id/mechanic', Utils.isValidSecretKey, GarageController.handleAddMechanic.bind(GarageController));
 
     app.get('*', (req, res) => {
         return handler(req, res);
