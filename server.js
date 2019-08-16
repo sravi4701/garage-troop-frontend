@@ -1,11 +1,9 @@
+require('dotenv').config();
 const next = require('next');
 const express = require('express');
-const config = require('config');
 const morgan = require('morgan');
-const GarageController = require('./controller/garages');
-const Utils = require('./utils');
 
-require('./modules/db'); // setup mongodb
+const PORT = process.env.PORT;
 
 const dev = process.env.NODE_ENV !== 'production';
 
@@ -18,25 +16,27 @@ nextApp.prepare().then(() => {
 
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
-    app.use(morgan('dev'));
+    // app.use(morgan('dev'));
 
     app.get('/', (req, res) => {
         const page = '/';
         nextApp.render(req, res, page);
     });
 
-    app.post('/api/garages', Utils.isValidSecretKey, GarageController.handleAddGarages.bind(GarageController));
-    app.post('/api/garages/multi', Utils.isValidSecretKey, GarageController.handleAddManyGarages.bind(GarageController));
-    app.post('/api/garages/:id/mechanic', Utils.isValidSecretKey, GarageController.handleAddMechanic.bind(GarageController));
+    app.get('/profile/:id', (req, res) => {
+        const page = '/profile';
+        const query = { id: req.params.id };
+        return nextApp.render(req, res, page, query);
+    });
 
     app.get('*', (req, res) => {
         return handler(req, res);
     });
 
-    app.listen(config.get('app.PORT'), error => {
+    app.listen(PORT, error => {
         if (error) {
             throw error;
         }
-        console.log('app is listening on 5000');
+        console.log(`app is listening on ${PORT}`);
     });
 });
