@@ -9,6 +9,15 @@ class HttpService extends BaseHTTP {
             throw error;
         }
     }
+
+    async getGaragesList(query) {
+        try {
+            const url = this.getFullPath(`/garages`, query);
+            return await this.performFetch(url);
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 export default new HttpService();
