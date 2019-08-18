@@ -1,0 +1,119 @@
+.search-header-section {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(90deg,#000428,#004e92);
+    padding: 10px 0 32px;
+    color: #ffffff;
+}
+
+.search-header-wrapper {
+    width: 74%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-header-tagline {
+    text-align: center;
+    margin: 16px 0px;
+}
+
+.search-header-tagline > h1 {
+    font-weight: 800;
+}
+
+.searchbox-items {
+    display: flex;
+    border-radius: 4px;
+    justify-content: center;
+}
+
+.searchbox-input {
+    width: 45% !important;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #999;
+    position: relative;
+    border-top-left-radius: 4px!important;
+    border-bottom-left-radius: 4px!important;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.searchbox-input-wrapper {
+    height: 100%;
+}
+
+.pincode-input {
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+    outline: none;
+    padding: 19px 50px 19px 16px;
+    font-size: 16px;
+    color: rgba(0,0,0,.87);
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: .2s;
+    font-weight: 500;
+}
+
+.searchbox-submit {
+    width: 165px !important;
+}
+
+.search-box-btn {
+    background: #1ab64f;
+    border: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    outline: none;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px 0;
+    width: 100%;
+    transition: .2s;
+    height: 100%;
+}
+
+.search-box-btn:hover {
+    opacity: 0.8;
+}
+
+.search-box-near-by-section {
+    position: absolute;
+    top: calc(50% - 15px);
+    right: 10px;
+}
+
+.searchbox-near-me {
+    background: #f2f2f2;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 100px;
+    max-height: 30px;
+    padding: 8px;
+    border-radius: 100px;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    font-weight: 600;
+    color: #999;
+    font-size: 12px;
+    outline: none;
+}
+
+.searchbox-near-me:hover {
+    color: #222;
+}
+
+button:focus{outline:none !important;}
