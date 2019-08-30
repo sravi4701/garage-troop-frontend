@@ -36,7 +36,9 @@ class BaseHttp {
      * get full path with base url + url string
      */
     getFullPath(path, query = {}) {
-        let url = `${BASE_URL}${path}`;
+        const baseUrl = query.base_url || BASE_URL;
+        delete query.base_url;
+        let url = `${baseUrl}${path}`;
         if (query && Object.keys(query).length > 0) {
             url = `${url}?${queryString.stringify(query)}`;
         }

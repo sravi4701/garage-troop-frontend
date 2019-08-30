@@ -2,6 +2,8 @@ import React from 'react';
 import GarageList from '../GarageList';
 import { SearchHeader } from '../Header';
 
+import './HomePage.css';
+
 class HomePage extends React.Component {
     render() {
         return (

@@ -18,6 +18,13 @@ nextApp.prepare().then(() => {
     app.use(express.urlencoded({ extended: false }));
     // app.use(morgan('dev'));
 
+
+    app.get('/search', (req, res) => {
+        const page = '/search';
+        const query = { ...req.query };
+        nextApp.render(req, res, page, query);
+    });
+
     app.get('/', (req, res) => {
         const page = '/';
         nextApp.render(req, res, page);
